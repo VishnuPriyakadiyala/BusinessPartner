@@ -1,0 +1,148 @@
+unmanaged;
+with draft;
+
+define behavior for ZR_ZBUT000TP alias ZBUT000
+implementation in class ZBP_R_ZBUT000 unique
+draft table zzbut00000d
+etag master Chdat
+lock master total etag Chdat
+authorization master ( global )
+
+{
+  field ( readonly )
+  Partner,
+  Crusr,
+  Crdat,
+  Chusr,
+  Chdat;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZBUT000 control ZSZBUT000_X
+  {
+    Partner = PARTNER;
+    Type = TYPE;
+    Bpkind = BPKIND;
+    BuGroup = BU_GROUP;
+    Bpext = BPEXT;
+    BuSort1 = BU_SORT1;
+    BuSort2 = BU_SORT2;
+    Source = SOURCE;
+    Title = TITLE;
+    Xdele = XDELE;
+    Xblck = XBLCK;
+    Augrp = AUGRP;
+    Rate = RATE;
+    NameOrg1 = NAME_ORG1;
+    NameOrg2 = NAME_ORG2;
+    NameOrg3 = NAME_ORG3;
+    NameOrg4 = NAME_ORG4;
+    LegalEnty = LEGAL_ENTY;
+    IndSector = IND_SECTOR;
+    LegalOrg = LEGAL_ORG;
+    FoundDat = FOUND_DAT;
+    LiquidDat = LIQUID_DAT;
+    Location1 = LOCATION_1;
+    Location2 = LOCATION_2;
+    Location3 = LOCATION_3;
+    NameLast = NAME_LAST;
+    NameFirst = NAME_FIRST;
+    NameLst2 = NAME_LST2;
+    NameLast2 = NAME_LAST2;
+    Namemiddle = NAMEMIDDLE;
+    TitleAca1 = TITLE_ACA1;
+    TitleAca2 = TITLE_ACA2;
+    TitleRoyl = TITLE_ROYL;
+    Prefix1 = PREFIX1;
+    Prefix2 = PREFIX2;
+    Name1Text = NAME1_TEXT;
+    Nickname = NICKNAME;
+    Initials = INITIALS;
+    Nameformat = NAMEFORMAT;
+    Namcountry = NAMCOUNTRY;
+    LanguCorr = LANGU_CORR;
+    Birthdt = BIRTHDT;
+    Deathdt = DEATHDT;
+    Perno = PERNO;
+    Children = CHILDREN;
+    MemHouse = MEM_HOUSE;
+    Partgrptyp = PARTGRPTYP;
+    Crusr = CRUSR;
+    Crdat = CRDAT;
+    Crtim = CRTIM;
+    Chusr = CHUSR;
+    Chdat = CHDAT;
+    Chtim = CHTIM;
+    PartnerGuID = PARTNER_GUID;
+    Addrcomm = ADDRCOMM;
+  }
+
+  association _ZBUT0BK { create; with draft; }
+  association _ZBUT0ID { create; with draft; }
+}
+
+define behavior for ZR_ZBUT0BKTP alias ZBUT0BK
+implementation in class ZBP_R_ZBUT0BK unique
+draft table zzbut0bk00d
+etag dependent by _ZBUT000
+lock dependent by _ZBUT000
+authorization dependent by _ZBUT000
+
+{
+  field ( readonly )
+  Partner,
+  BkvID;
+
+
+  update;
+  delete;
+
+  mapping for ZBUT0BK control ZSZBUT0BK_X
+  {
+    Partner = PARTNER;
+    BkvID = BKVID;
+    Banks = BANKS;
+    Bankl = BANKL;
+    Bankn = BANKN;
+    Koinh = KOINH;
+  }
+
+  association _ZBUT000 { with draft; }
+}
+
+define behavior for ZR_ZBUT0IDTP alias ZBUT0ID
+implementation in class ZBP_R_ZBUT0ID unique
+draft table zzbut0id00d
+etag dependent by _ZBUT000
+lock dependent by _ZBUT000
+authorization dependent by _ZBUT000
+
+{
+  field ( readonly )
+  Partner,
+  Type;
+
+
+  update;
+  delete;
+
+  mapping for ZBUT0ID control ZSZBUT0ID_X
+  {
+    Partner = PARTNER;
+    Type = TYPE;
+    Idnumber = IDNUMBER;
+    ValidTo = VALID_TO;
+    ValidFrom = VALID_FROM;
+  }
+
+  association _ZBUT000 { with draft; }
+}

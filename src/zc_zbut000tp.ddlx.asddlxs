@@ -1,0 +1,313 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'Business Partner', 
+    typeNamePlural: 'Business Partners', 
+    title: {
+      type: #STANDARD, 
+      label: 'ZBUT000', 
+      value: 'Partner'
+    }
+  }, 
+  presentationVariant: [ {
+    sortOrder: [ {
+      by: 'Partner', 
+      direction: #DESC
+    } ], 
+    visualizations: [ {
+      type: #AS_LINEITEM
+    } ]
+  } ]
+}
+annotate view ZC_ZBUT000TP with
+{
+  @UI.facet: [ 
+  {
+               label : 'General Information',
+               id : 'GeneralInfo',
+               purpose: #STANDARD,
+               type : #COLLECTION,
+               position: 10
+           },
+           {
+           parentId : 'GeneralInfo',
+    label: 'Name Details',
+    targetQualifier: 'Dimensions',
+    type: #FIELDGROUP_REFERENCE,
+    purpose: #STANDARD,
+    position: 20 
+  },
+  {
+    id: 'idIdentification', 
+     
+     parentId : 'GeneralInfo',
+    type: #IDENTIFICATION_REFERENCE,
+    purpose: #STANDARD,
+    label: 'Header Details', 
+    position: 10 
+  },
+  {
+    id: 'idDate', 
+     
+     parentId : 'GeneralInfo',
+    targetQualifier: 'DateInfo',
+    type: #FIELDGROUP_REFERENCE,
+    purpose: #STANDARD,
+    label: 'Date Information', 
+    position: 30 
+  },
+  {
+    id: 'idLineitem', 
+    type: #LINEITEM_REFERENCE, 
+    label: 'Bank Details', 
+    position: 30 , 
+    targetElement: '_ZBUT0BK'
+  },
+  {
+    id: 'idExternal', 
+    type: #LINEITEM_REFERENCE, 
+    label: 'External References', 
+    position: 40 , 
+    targetElement: '_ZBUT0ID'
+  } ]
+  
+  @UI.lineItem: [ {
+    position: 10 , 
+    importance: #HIGH, 
+    label: 'Partner'
+  } ]
+  @UI.identification: [ {
+    position: 10 , 
+    label: 'Partner'
+  } ]
+  @UI.selectionField: [ {
+    position: 10 
+  } ]
+  Partner;
+  
+  @UI.lineItem: [ {
+    position: 20 , 
+    importance: #HIGH, 
+    label: 'Type'
+  } ]
+  @UI.identification: [ {
+    position: 20 , 
+    label: 'Type'
+  } ]
+  Type;
+  
+  @UI.lineItem: [ {
+    position: 30 , 
+    importance: #HIGH, 
+    label: 'Bp kind'
+  } ]
+  @UI.identification: [ {
+    position: 30 , 
+    label: 'Bp kind'
+  } ]
+  Bpkind;
+  
+  @UI.lineItem: [ {
+    position: 40 , 
+    importance: #HIGH, 
+    label: 'Business Group'
+  } ]
+  @UI.identification: [ {
+    position: 40 , 
+    label: 'Business Group'
+  } ]
+  BuGroup;
+  
+  @UI.lineItem: [ {
+    position: 50 , 
+    importance: #HIGH, 
+    label: 'External Indentifier'
+  } ]
+  @UI.identification: [ {
+    position: 50 , 
+    label: 'External Indentifier'
+  } ]
+  Bpext;
+  
+  
+  @UI.lineItem: [ {
+    position: 80 , 
+    importance: #HIGH, 
+    label: 'Source'
+  } ]
+  @UI.identification: [ {
+    position: 80 , 
+    label: 'Source'
+  } ]
+  Source;
+  
+  @UI.lineItem: [ {
+    position: 90 , 
+    importance: #HIGH, 
+    label: 'Title'
+  } ]
+  @UI.fieldGroup: [{  type: #STANDARD,
+    position: 4 ,
+    qualifier: 'Dimensions',
+    groupLabel: 'Dimensions',
+    label: 'Designation' }]
+ 
+  Title;
+  
+  @UI.lineItem: [ {
+    position: 100 , 
+    importance: #HIGH, 
+    label: 'Deletion Indicator'
+  } ]
+  @UI.identification: [ {
+    position: 100 , 
+    label: 'Deletion Indicator'
+  } ]
+  Xdele;
+  
+  @UI.lineItem: [ {
+    position: 110 , 
+    importance: #HIGH, 
+    label: 'Block Indicator'
+  } ]
+  @UI.identification: [ {
+    position: 110 , 
+    label: 'Block Indicator'
+  } ]
+  Xblck;
+  
+  @UI.lineItem: [ {
+    position: 130 , 
+    importance: #HIGH, 
+    label: 'Rate'
+  } ]
+  @UI.identification: [ {
+    position: 130 , 
+    label: 'Rate'
+  } ]
+  Rate;
+  
+  @UI.lineItem: [ {
+    position: 210 , 
+    importance: #HIGH, 
+    label: 'Founded Date'
+  } ]
+   @UI.fieldGroup: [{  type: #STANDARD,
+    position: 2 ,
+    qualifier: 'DateInfo',
+    groupLabel: 'DateInfo',
+    label: 'Found Date' }]
+ 
+  FoundDat;
+  
+  @UI.lineItem: [ {
+    position: 220 , 
+    importance: #HIGH, 
+    label: 'Liquidation Date'
+  } ]
+  @UI.fieldGroup: [{  type: #STANDARD,
+    position: 1 ,
+    qualifier: 'DateInfo',
+    groupLabel: 'DateInfo',
+    label: 'Liquidation Date' }]
+ 
+  LiquidDat;
+  
+  @UI.lineItem: [ {
+    position: 260 , 
+    importance: #HIGH, 
+    label: 'Last Name'
+  } ]
+  @UI.fieldGroup: [{  type: #STANDARD,
+    position: 3 ,
+    qualifier: 'Dimensions',
+    groupLabel: 'Dimensions',
+    label: 'Last Name' }]
+ 
+  NameLast;
+  
+  @UI.lineItem: [ {
+    position: 270 , 
+    importance: #HIGH, 
+    label: 'First Name'
+  } ]
+  @UI.fieldGroup: [{  type: #STANDARD,
+    position: 2 ,
+    qualifier: 'Dimensions',
+    groupLabel: 'Dimensions',
+    label: 'First Name' }]
+  
+  NameFirst;
+  
+  @UI.lineItem: [ {
+    position: 340 , 
+    importance: #HIGH, 
+    label: 'Prefix'
+  } ]
+  @UI.fieldGroup: [{  type: #STANDARD,
+    position: 1 ,
+    qualifier: 'Dimensions',
+    groupLabel: 'Dimensions',
+    label: 'Prefix' }]
+  Prefix1;
+  
+  
+  
+  @UI.lineItem: [ {
+    position: 400 , 
+    importance: #HIGH, 
+    label: 'Namcountry'
+  } ]
+  @UI.identification: [ {
+    position: 400 , 
+    label: 'Namcountry'
+  } ]
+  Namcountry;
+  
+  @UI.lineItem: [ {
+    position: 410 , 
+    importance: #HIGH, 
+    label: 'LanguCorr'
+  } ]
+  @UI.identification: [ {
+    position: 410 , 
+    label: 'LanguCorr'
+  } ]
+  LanguCorr;
+  
+  @UI.lineItem: [ {
+    position: 440 , 
+    importance: #HIGH, 
+    label: 'Perno'
+  } ]
+   @UI.fieldGroup: [{  type: #STANDARD,
+    position: 5 ,
+    qualifier: 'Dimensions',
+    groupLabel: 'Dimensions',
+    label: 'Personnel Number' }]
+ Perno;
+  
+  @UI.hidden: true
+  Crusr;
+  
+  @UI.hidden: true
+  Crdat;
+  
+  @UI.hidden: true
+  Crtim;
+  
+  @UI.hidden: true
+  Chusr;
+  
+  @UI.hidden: true
+  Chdat;
+  
+  @UI.hidden: true
+  Chtim;
+  
+ @UI.hidden: true
+  PartnerGuID;
+  
+  @UI.hidden: true
+   Addrcomm;
+}

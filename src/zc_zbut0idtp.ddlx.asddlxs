@@ -1,0 +1,85 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'Ext Number', 
+    typeNamePlural: 'Ext Numbers', 
+    title: {
+      type: #STANDARD, 
+      label: 'ZBUT0ID', 
+      value: 'Type'
+    }
+  }, 
+  presentationVariant: [ {
+    sortOrder: [ {
+      by: 'Type', 
+      direction: #DESC
+    } ], 
+    visualizations: [ {
+      type: #AS_LINEITEM
+    } ]
+  } ]
+}
+annotate view ZC_ZBUT0IDTP with
+{
+  @UI.facet: [ {
+    id: 'idZBUT0ID', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Identification Details', 
+    position: 10 
+  } ]
+  @UI.lineItem: [ {
+    position: 10 , 
+    importance: #HIGH, 
+    label: 'Partner'
+  } ]
+  @UI.identification: [ {
+    position: 10 , 
+    label: 'Partner'
+  } ]
+  Partner;
+  
+  @UI.lineItem: [ {
+    position: 20 , 
+    importance: #HIGH, 
+    label: 'Type'
+  } ]
+  @UI.identification: [ {
+    position: 20 , 
+    label: 'Type'
+  } ]
+  Type;
+  
+  @UI.lineItem: [ {
+    position: 30 , 
+    importance: #HIGH, 
+    label: 'Idnumber'
+  } ]
+  @UI.identification: [ {
+    position: 30 , 
+    label: 'Idnumber'
+  } ]
+  Idnumber;
+  
+  @UI.lineItem: [ {
+    position: 40 , 
+    importance: #HIGH, 
+    label: 'ValidTo'
+  } ]
+  @UI.identification: [ {
+    position: 40 , 
+    label: 'ValidTo'
+  } ]
+  ValidTo;
+  
+  @UI.lineItem: [ {
+    position: 50 , 
+    importance: #HIGH, 
+    label: 'ValidFrom'
+  } ]
+  @UI.identification: [ {
+    position: 50 , 
+    label: 'ValidFrom'
+  } ]
+  ValidFrom;
+}

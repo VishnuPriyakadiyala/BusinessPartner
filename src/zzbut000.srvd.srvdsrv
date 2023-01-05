@@ -1,0 +1,5 @@
+define service ZZBUT000 {
+  expose ZC_ZBUT000TP as ZBUT000;
+  expose ZC_ZBUT0BKTP as ZBUT0BK;
+  expose ZC_ZBUT0IDTP as ZBUT0ID;
+}

@@ -1,0 +1,96 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'Bank', 
+    typeNamePlural: 'Banks', 
+    title: {
+      type: #STANDARD, 
+      label: 'Bank Information', 
+      value: 'BkvID'
+    }
+  }, 
+  presentationVariant: [ {
+    sortOrder: [ {
+      by: 'BkvID', 
+      direction: #DESC
+    } ], 
+    visualizations: [ {
+      type: #AS_LINEITEM
+    } ]
+  } ]
+}
+annotate view ZC_ZBUT0BKTP with
+{
+  @UI.facet: [ {
+    id: 'idZBUT0BK', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Bank Details', 
+    position: 10 
+  } ]
+  @UI.lineItem: [ {
+    position: 10 , 
+    importance: #HIGH, 
+    label: 'Partner'
+  } ]
+  @UI.identification: [ {
+    position: 10 , 
+    label: 'Partner'
+  } ]
+  Partner;
+  
+  @UI.lineItem: [ {
+    position: 20 , 
+    importance: #HIGH, 
+    label: 'Bank Details ID'
+  } ]
+  @UI.identification: [ {
+    position: 20 , 
+    label: 'Bank Details ID'
+  } ]
+  BkvID;
+  
+  @UI.lineItem: [ {
+    position: 30 , 
+    importance: #HIGH, 
+    label: 'Bank Country Key'
+  } ]
+  @UI.identification: [ {
+    position: 30 , 
+    label: 'Bank Country Key'
+  } ]
+  Banks;
+  
+  @UI.lineItem: [ {
+    position: 40 , 
+    importance: #HIGH, 
+    label: 'Bank Key'
+  } ]
+  @UI.identification: [ {
+    position: 40 , 
+    label: 'Bank Key'
+  } ]
+  Bankl;
+  
+  @UI.lineItem: [ {
+    position: 50 , 
+    importance: #HIGH, 
+    label: 'Bank Account Number'
+  } ]
+  @UI.identification: [ {
+    position: 50 , 
+    label: 'Bank Account Number'
+  } ]
+  Bankn;
+  
+  @UI.lineItem: [ {
+    position: 60 , 
+    importance: #HIGH, 
+    label: 'Koinh'
+  } ]
+  @UI.identification: [ {
+    position: 60 , 
+    label: 'Account Holder Hame'
+  } ]
+  Koinh;
+}
